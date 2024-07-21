@@ -7,7 +7,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: '开屏广告',
-      quickFind: true,
+      fastQuery: true,
       matchTime: 10000,
       actionMaximum: 1,
       resetMatch: 'app',
@@ -16,7 +16,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches:
-            'FrameLayout > FrameLayout[childCount>2] > @View[clickable=true] + TextView <<n [id="android:id/content"]',
+            'FrameLayout > FrameLayout[childCount>2] > @View[clickable=true][visibleToUser=true] + TextView[text=null] <<n [id="android:id/content"]',
           snapshotUrls: 'https://i.gkd.li/i/14232395',
         },
         {
@@ -30,10 +30,24 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 1,
+      name: '更新提示',
+      fastQuery: true,
+      matchTime: 10000,
+      actionMaximum: 1,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: '@[text="稍后再说"] + [text="立即升级"]',
+          snapshotUrls: 'https://i.gkd.li/i/14790279',
+        },
+      ],
+    },
+    {
       key: 2,
       name: '全屏广告-VIP弹窗',
       desc: '直接关闭所有底部半屏弹窗',
-      quickFind: true,
+      fastQuery: true,
       activityIds: [
         'com.luna.biz.main.main.MainActivity',
         'com.luna.biz.ad.AdActivity',
@@ -41,23 +55,24 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '底部半屏弹窗',
           action: 'back', // 使用点击方式有概率无效
-          matches: 'FlattenUIText[text="看视频免费听"]',
+          matches: 'FlattenUIText[text="开会员听整月" || text="购买汽水会员"]',
           snapshotUrls: [
             'https://i.gkd.li/i/13533795',
             'https://i.gkd.li/i/13660652',
             'https://i.gkd.li/i/13533797',
+            'https://i.gkd.li/i/14767233',
+            'https://i.gkd.li/i/16280954',
             'https://i.gkd.li/i/13613296', // 避免在此页面误触
           ],
         },
         {
-          key: 1,
-          action: 'back', // 使用点击方式有概率无效
-          matches: 'FlattenUIText[text="当前已享"]',
-          snapshotUrls: [
-            'https://i.gkd.li/i/14767233',
-            'https://i.gkd.li/i/13613296', // 避免在此页面误触
-          ],
+          key: 2,
+          name: '全屏弹窗',
+          matches:
+            '@LynxFlattenUI[clickable=true] -2 FlattenUIText[text="立即抢购"]',
+          snapshotUrls: 'https://i.gkd.li/i/16278152',
         },
       ],
     },
@@ -84,7 +99,7 @@ export default defineGkdApp({
           preKeys: [0],
           key: 1,
           name: '点击"坚持退出"',
-          quickFind: true,
+          fastQuery: true,
           matches: '[text="坚持退出"]',
           snapshotUrls: 'https://i.gkd.li/i/13613184',
         },
@@ -102,7 +117,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          quickFind: true,
+          fastQuery: true,
           matches: '@[text*="领取成功"][clickable=true] - [text="反馈"]',
           snapshotUrls: [
             'https://i.gkd.li/i/14767236',
@@ -118,7 +133,7 @@ export default defineGkdApp({
         {
           preKeys: [0, 2],
           key: 1,
-          quickFind: true,
+          fastQuery: true,
           matches: '[text="坚持退出"]',
           snapshotUrls: [
             'https://i.gkd.li/i/14767235',
@@ -144,7 +159,7 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          quickFind: true,
+          fastQuery: true,
           action: 'back',
           matches: '[text="为汽水音乐评分"]',
           exampleUrls:
@@ -159,7 +174,7 @@ export default defineGkdApp({
       desc: '点击关闭',
       rules: [
         {
-          quickFind: true,
+          fastQuery: true,
           activityIds: 'com.luna.biz.main.main.MainActivity',
           matches:
             '[id="com.luna.music:id/fl_pendant_container"] > [id="com.luna.music:id/view_close"]',

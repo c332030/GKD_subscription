@@ -12,10 +12,14 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          quickFind: true,
+          fastQuery: true,
           activityIds: 'com.ruanmei.ithome.ui.MainActivity',
-          matches: '@[text="关闭"][visibleToUser=true] <<n [vid="ll_web"]',
-          snapshotUrls: 'https://i.gkd.li/i/15413491',
+          matches:
+            '@[text="关闭"][visibleToUser=true] <<n [vid="ll_web"][visibleToUser=true]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/15413491',
+            'https://i.gkd.li/i/15603266', // 避免误触
+          ],
         },
       ],
     },
@@ -23,7 +27,7 @@ export default defineGkdApp({
       key: 2,
       name: '分段广告-信息流广告',
       desc: '长按广告-点击[屏蔽]-点击[不喜欢此条]',
-      quickFind: true,
+      fastQuery: true,
       activityIds: 'com.ruanmei.ithome.ui.MainActivity',
       rules: [
         {
@@ -54,7 +58,7 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          quickFind: true,
+          fastQuery: true,
           activityIds: 'com.ruanmei.ithome.ui.MainActivity',
           matches: '[vid="btn_dialog_upgrade_ignore"]',
           snapshotUrls: 'https://i.gkd.li/i/15413494',

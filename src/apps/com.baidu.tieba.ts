@@ -7,7 +7,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: '开屏广告',
-      quickFind: true,
+      fastQuery: true,
       matchTime: 10000,
       actionMaximum: 1,
       resetMatch: 'app',
@@ -26,7 +26,7 @@ export default defineGkdApp({
         {
           key: 1,
           matches:
-            'FrameLayout > FrameLayout[childCount>2] > @View[clickable=true] + TextView <<n [id="android:id/content"]',
+            'FrameLayout > FrameLayout[childCount>2] > @View[clickable=true][visibleToUser=true] + TextView[text=null] <<n [id="android:id/content"]',
           snapshotUrls: 'https://i.gkd.li/i/13322227',
         },
         {
@@ -214,7 +214,7 @@ export default defineGkdApp({
         {
           key: 2,
           name: '评论区左侧悬浮广告',
-          quickFind: true,
+          fastQuery: true,
           activityIds: 'com.baidu.tieba.pb.pb.main.PbActivity',
           matches: 'LinearLayout[childCount=2] > @ImageView + [text="广告"]',
           snapshotUrls: 'https://i.gkd.li/i/13296280',
@@ -240,7 +240,7 @@ export default defineGkdApp({
       actionMaximum: 1,
       rules: [
         {
-          quickFind: true,
+          fastQuery: true,
           activityIds: 'com.baidu.tieba.pb.pb.main.PbActivity',
           matches: '[vid="tip_close"]',
           exampleUrls:
@@ -267,12 +267,13 @@ export default defineGkdApp({
         {
           key: 1,
           name: '关闭签到成功弹窗',
+          action: 'back',
           activityIds: 'com.baidu.tbadk.browser.TBWebContainerActivity',
-          matches:
-            'WebView[text="签到弹窗"] > View > View > TextView[text=""][index=2][visibleToUser=true]',
+          matches: 'WebView[text="签到弹窗"]',
           snapshotUrls: [
             'https://i.gkd.li/i/13776424',
             'https://i.gkd.li/i/15087327',
+            'https://i.gkd.li/i/15881225',
           ],
         },
       ],
@@ -284,7 +285,7 @@ export default defineGkdApp({
       actionMaximum: 1,
       rules: [
         {
-          quickFind: true,
+          fastQuery: true,
           activityIds: 'com.baidu.tieba.pb.pb.main.PbActivity',
           matches: '@ImageView[clickable=true] -2 [text="进入话题查看更多"]',
           exampleUrls:
@@ -314,6 +315,33 @@ export default defineGkdApp({
             'https://i.gkd.li/i/14630806',
             'https://i.gkd.li/i/15119439',
             'https://i.gkd.li/i/15119451',
+          ],
+        },
+      ],
+    },
+    {
+      key: 15,
+      name: '局部广告-信息流广告',
+      desc: '点击关闭',
+      forcedTime: 10000,
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: [
+            'com.baidu.tieba.pb.pb.main.PbActivity',
+            'com.baidu.tieba.forum.ForumActivity',
+            'com.baidu.tieba.tblauncher.MainTabActivity',
+          ],
+          matches:
+            '@FrameLayout[clickable=true] <n RelativeLayout + * [text="广告"]',
+          exampleUrls:
+            'https://m.gkd.li/57941037/163e225e-209b-40a0-a98e-e2b627df529c',
+          snapshotUrls: [
+            'https://i.gkd.li/i/16038470',
+            'https://i.gkd.li/i/16038471',
+            'https://i.gkd.li/i/16038472',
+            'https://i.gkd.li/i/16107627',
+            'https://i.gkd.li/i/16118151',
           ],
         },
       ],

@@ -21,7 +21,7 @@ export default defineGkdApp({
       key: 2,
       name: '全屏广告-弹窗广告',
       desc: '点击[以后再说]',
-      quickFind: true,
+      fastQuery: true,
       actionMaximum: 1,
       resetMatch: 'app',
       rules: [
@@ -44,6 +44,12 @@ export default defineGkdApp({
           name: '隆重推出 Google Play Points 计划',
           matches: '[text="以后再说"][visibleToUser=true]',
           snapshotUrls: 'https://i.gkd.li/i/15335350',
+        },
+        {
+          key: 2,
+          activityIds: 'com.google.android.finsky.activities.MainActivity',
+          matches: ['[text*="推荐内容"]', '[text="不用了"]'],
+          snapshotUrls: 'https://i.gkd.li/i/16079813',
         },
       ],
     },

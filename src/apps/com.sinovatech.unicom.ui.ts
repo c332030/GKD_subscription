@@ -7,7 +7,7 @@ export default defineGkdApp({
     {
       key: 1,
       name: '权限提示',
-      quickFind: true,
+      fastQuery: true,
       actionMaximum: 1,
       resetMatch: 'app',
       activityIds: [
@@ -23,7 +23,7 @@ export default defineGkdApp({
     {
       key: 2,
       name: '更新提示',
-      quickFind: true,
+      fastQuery: true,
       matchTime: 10000,
       actionMaximum: 1,
       resetMatch: 'app',
@@ -33,23 +33,28 @@ export default defineGkdApp({
     {
       key: 3,
       name: '全屏广告-弹窗广告',
+      fastQuery: true,
       rules: [
         {
           key: 0,
-          name: '首页弹窗',
           forcedTime: 10000,
           activityIds: 'com.sinovatech.unicom.basic.ui.activity.MainActivity',
-          matches: '[text="首页弹窗"] >3 Image[clickable=true]',
-          snapshotUrls: [
-            'https://i.gkd.li/i/13761130',
-            'https://i.gkd.li/i/14504242',
-          ],
+          matches:
+            '[text="首页弹窗"] >2 View > @Image[clickable=true][text!=null] <<n [vid="main_fragment_layout"]',
+          snapshotUrls: 'https://i.gkd.li/i/14504242',
+        },
+        {
+          key: 1,
+          activityIds: 'com.sinovatech.unicom.basic.ui.activity.MainActivity',
+          matches:
+            '@TextView[id="home_popup_close"][childCount=0][clickable=true] <<n [vid="main_fragment_layout_haoka"]',
+          snapshotUrls: 'https://i.gkd.li/i/15971964',
         },
       ],
     },
     {
       key: 4,
-      quickFind: true,
+      fastQuery: true,
       name: '局部广告-首页右下角卡片悬浮窗',
       desc: '点击X',
       rules: [

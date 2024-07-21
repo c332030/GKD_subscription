@@ -7,7 +7,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: '青少年模式',
-      quickFind: true,
+      fastQuery: true,
       actionMaximum: 1,
       resetMatch: 'app',
       rules: [
@@ -74,7 +74,7 @@ export default defineGkdApp({
         {
           key: 1,
           name: '我的页面-你可能感兴趣的人',
-          quickFind: true,
+          fastQuery: true,
           matches:
             'ViewGroup[childCount=3] > [text="隐藏"][visibleToUser=true]',
           snapshotUrls: 'https://i.gkd.li/i/14001536',
@@ -82,7 +82,7 @@ export default defineGkdApp({
         {
           key: 2,
           name: '朋友推荐弹窗',
-          quickFind: true,
+          fastQuery: true,
           matches: '[text="朋友推荐"] + [vid="close_btn"]',
           snapshotUrls: 'https://i.gkd.li/i/14232217',
         },
@@ -93,13 +93,29 @@ export default defineGkdApp({
       name: '评价提示',
       actionMaximum: 1,
       resetMatch: 'app',
-      quickFind: true,
+      fastQuery: true,
       rules: [
         {
           matches: '@[vid="close"] +2 * > [text="喜欢就给个好评吧"]',
           exampleUrls:
             'https://m.gkd.li/57941037/da412e0f-47db-4cc0-8821-184c6ba42882',
           snapshotUrls: 'https://i.gkd.li/i/14343547',
+        },
+      ],
+    },
+    {
+      key: 14,
+      name: '全屏广告-直播间广告',
+      rules: [
+        {
+          fastQuery: true,
+          action: 'back',
+          activityIds:
+            'com.kuaishou.live.core.basic.activity.LiveSlideActivity',
+          matches: '[text="幸运奖池"][visibleToUser=true] <<n [vid="webView"]',
+          exampleUrls:
+            'https://m.gkd.li/57941037/338df1c2-8789-435b-8970-c837b00fc0f5',
+          snapshotUrls: 'https://i.gkd.li/i/15629334',
         },
       ],
     },

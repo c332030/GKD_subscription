@@ -7,16 +7,22 @@ export default defineGkdApp({
     {
       key: -1,
       name: '开屏广告',
-      resetMatch: 'app',
+      fastQuery: true,
       matchTime: 10000,
       actionMaximum: 1,
+      resetMatch: 'app',
+      actionMaximumKey: 0,
       rules: [
         {
           key: 0,
-          quickFind: true,
           matches:
-            'FrameLayout > FrameLayout[childCount>2] > @View[clickable=true] + TextView <<n [id="android:id/content"]',
+            'FrameLayout > FrameLayout[childCount>2] > @View[clickable=true][visibleToUser=true] + TextView[text=null] <<n [id="android:id/content"]',
           snapshotUrls: 'https://i.gkd.li/i/14812686',
+        },
+        {
+          key: 1,
+          matches: '[text*="跳过"][text.length<10][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/16283385',
         },
       ],
     },
@@ -52,7 +58,7 @@ export default defineGkdApp({
           key: 1,
           name: '课程广告',
           activityIds: 'com.handsgo.jiakao.android.main.activity.MainActivity',
-          quickFind: true,
+          fastQuery: true,
           matches:
             '[id="com.handsgo.jiakao.android:id/adsdk__ids_cta_layout"] - * > [id="com.handsgo.jiakao.android:id/close"]',
           snapshotUrls: 'https://i.gkd.li/i/13523033',
@@ -62,7 +68,7 @@ export default defineGkdApp({
     {
       key: 3,
       name: '权限提示-通知权限',
-      quickFind: true,
+      fastQuery: true,
       matchTime: 10000,
       actionMaximum: 1,
       resetMatch: 'app',

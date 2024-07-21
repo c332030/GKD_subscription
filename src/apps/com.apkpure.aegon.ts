@@ -20,7 +20,7 @@ export default defineGkdApp({
     {
       key: 2,
       name: '功能类-更新与已安装界面-点击[查看更多]',
-      quickFind: true,
+      fastQuery: true,
       rules: [
         {
           activityIds: [
@@ -29,7 +29,8 @@ export default defineGkdApp({
             'com.apkpure.aegon.cms.activity.CommonActivity',
             'com.apkpure.aegon.main.activity.AppMoreActivity',
           ],
-          matches: '@ViewGroup[clickable=true] > [text="查看更多"]',
+          matches:
+            '@ViewGroup[clickable=true] > [text="查看更多"][visibleToUser=true]',
           snapshotUrls: 'https://i.gkd.li/i/15469126',
         },
       ],
@@ -43,19 +44,24 @@ export default defineGkdApp({
         'com.apkpure.aegon.cms.activity.CommonActivity',
         'com.apkpure.aegon.main.activity.AppMoreActivity',
       ],
-      quickFind: true,
+      fastQuery: true,
       rules: [
         {
           name: '点击三点图标',
           key: 0,
-          matches: '@ImageView - RelativeLayout >3 [text="AD"]',
+          matches:
+            '@ImageView - RelativeLayout >3 [text="AD"][visibleToUser=true]',
           snapshotUrls: 'https://i.gkd.li/i/13466329',
         },
         {
           name: '点击关闭',
           preKeys: 0,
-          matches: 'TextView[text="关闭"]',
-          snapshotUrls: 'https://i.gkd.li/i/13466610',
+          matches:
+            '@LinearLayout[clickable=true] >n [text="关闭"][visibleToUser=true]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/13466610',
+            'https://i.gkd.li/i/15542026',
+          ],
         },
       ],
     },

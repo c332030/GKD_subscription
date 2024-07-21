@@ -7,7 +7,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: '开屏广告',
-      quickFind: true,
+      fastQuery: true,
       matchTime: 10000,
       actionMaximum: 1,
       resetMatch: 'app',
@@ -16,11 +16,8 @@ export default defineGkdApp({
         {
           key: 0,
           matches:
-            'FrameLayout > FrameLayout[childCount>2] > @View[clickable=true] + TextView <<n [id="android:id/content"]',
+            'FrameLayout > FrameLayout[childCount>2] > @View[clickable=true][visibleToUser=true] + TextView[text=null] <<n [id="android:id/content"]',
           snapshotUrls: [
-            'https://i.gkd.li/i/12683145',
-            'https://i.gkd.li/i/12683173',
-            'https://i.gkd.li/i/13702708',
             'https://i.gkd.li/i/13842826',
             'https://i.gkd.li/i/13939089',
             'https://i.gkd.li/i/14260635',
@@ -34,15 +31,15 @@ export default defineGkdApp({
         {
           // 该开屏广告需要点击坐标在跳过按钮下半部分内才能跳过
           key: 2,
-          order: -1,
           position: {
-            left: 'width * 0.0826',
-            top: 'width * 0.1',
+            left: 'width * 0.5',
+            top: 'width * 0.6984',
           },
-          matches: '[vid="splash_full_tk_play_card_view"]',
+          matches: '@ViewGroup > [text="跳过"][visibleToUser=true]',
           snapshotUrls: [
             'https://i.gkd.li/i/15269380',
             'https://i.gkd.li/i/15285908',
+            'https://i.gkd.li/i/15520277',
           ],
         },
       ],
@@ -55,7 +52,7 @@ export default defineGkdApp({
         {
           key: 0,
           name: '软件详情页卡片广告',
-          quickFind: true,
+          fastQuery: true,
           activityIds: 'info.muge.appshare.view.app.detail.AppDetailActivity',
           matches:
             'FrameLayout[childCount=5] > @FrameLayout[visibleToUser=true] > ImageView <<n [vid="adContainer"]',
@@ -64,7 +61,7 @@ export default defineGkdApp({
         {
           key: 1,
           name: '搜索页卡片广告',
-          quickFind: true,
+          fastQuery: true,
           activityIds: 'info.muge.appshare.view.search.app.SearchAppActivity',
           matches:
             'FrameLayout[childCount=5] > @FrameLayout[visibleToUser=true] > ImageView <<n [vid="adView"]',
@@ -74,7 +71,7 @@ export default defineGkdApp({
     },
     {
       key: 2,
-      quickFind: true,
+      fastQuery: true,
       name: '功能类-自动签到',
       matchTime: 10000,
       actionMaximum: 1,
@@ -98,7 +95,7 @@ export default defineGkdApp({
       key: 3,
       name: '分段广告-软件详情页广告',
       desc: '点击关闭-点击不感兴趣',
-      quickFind: true,
+      fastQuery: true,
       activityIds: 'info.muge.appshare.view.app.detail.AppDetailActivity',
       rules: [
         {
@@ -136,7 +133,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          quickFind: true,
+          fastQuery: true,
           matches: 'View[vid="v_jump"][clickable=true]',
           exampleUrls:
             'https://m.gkd.li/57941037/6b1d7b37-edd7-499f-a8b0-ecba24ef2c44',
@@ -175,7 +172,7 @@ export default defineGkdApp({
       desc: '点击[收到]',
       actionMaximum: 1,
       resetMatch: 'app',
-      quickFind: true,
+      fastQuery: true,
       rules: [
         {
           activityIds: 'info.muge.appshare.view.main.MainActivity',
@@ -192,7 +189,7 @@ export default defineGkdApp({
       desc: '下载文件页面',
       rules: [
         {
-          quickFind: true,
+          fastQuery: true,
           activityIds:
             'info.muge.appshare.view.browser.DownloadBrowserActivity',
           matches: '[text="浏览器打开"]',

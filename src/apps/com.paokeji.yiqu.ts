@@ -7,7 +7,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: '开屏广告',
-      quickFind: true,
+      fastQuery: true,
       matchTime: 10000,
       resetMatch: 'app',
       actionMaximum: 1,
@@ -21,7 +21,7 @@ export default defineGkdApp({
         {
           key: 1,
           matches:
-            'FrameLayout > FrameLayout[childCount>2] > @View[clickable=true] + TextView <<n [id="android:id/content"]',
+            'FrameLayout > FrameLayout[childCount>2] > @View[clickable=true][visibleToUser=true] + TextView[text=null] <<n [id="android:id/content"]',
           snapshotUrls: [
             'https://i.gkd.li/i/14031922',
             'https://i.gkd.li/i/14322264',
@@ -108,7 +108,7 @@ export default defineGkdApp({
       name: '更新提示',
       desc: '点击"暂不"',
       matchTime: 10000,
-      quickFind: true,
+      fastQuery: true,
       resetMatch: 'app',
       actionMaximum: 1,
       rules: [
@@ -136,12 +136,15 @@ export default defineGkdApp({
           activityIds:
             'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
           matches:
-            'Image[text=""] < @View +4 [text="反馈"] + * >2 [text="广告"]',
-          snapshotUrls: 'https://i.gkd.li/i/14717730',
+            '[text="反馈"] -(2,4) @View[childCount=1][visibleToUser=true] > Image[childCount=0][text=""]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/14717730',
+            'https://i.gkd.li/i/16062358',
+          ],
         },
         {
           key: 2,
-          quickFind: true,
+          fastQuery: true,
           activityIds:
             'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
           matches: '@LinearLayout[clickable=true] - * > [text="反馈"]',
@@ -154,6 +157,12 @@ export default defineGkdApp({
             '[id="android:id/content"] >2 FrameLayout[childCount=9] >3 FrameLayout[childCount=2] > @FrameLayout[childCount=1] > ImageView',
           snapshotUrls: 'https://i.gkd.li/i/15374245',
         },
+        {
+          key: 4,
+          activityIds: 'com.aster.comic.app.view.MainActivity',
+          matches: '[text="反馈"] + @View > Image[childCount=0]',
+          snapshotUrls: 'https://i.gkd.li/i/15711106',
+        },
       ],
     },
     {
@@ -163,7 +172,7 @@ export default defineGkdApp({
       actionMaximum: 3,
       rules: [
         {
-          quickFind: true,
+          fastQuery: true,
           activityIds: 'com.aster.comic.app.view.reader.ReaderActivity',
           matches: '@[clickable=true] > [text="点我重试"]',
           exampleUrls:

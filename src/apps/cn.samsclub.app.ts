@@ -7,15 +7,22 @@ export default defineGkdApp({
     {
       key: 0,
       name: '开屏广告',
-      quickFind: true,
+      fastQuery: true,
       matchTime: 10000,
       actionMaximum: 1,
       resetMatch: 'app',
+      actionMaximumKey: 0,
       rules: [
         {
+          key: 0,
           matches:
             '@ImageView[clickable=true] <2 [id="cn.samsclub.app:id/advertising_container"]',
           snapshotUrls: 'https://i.gkd.li/i/13609106',
+        },
+        {
+          key: 1,
+          matches: '@ImageView[vid="close_view"]',
+          snapshotUrls: 'https://i.gkd.li/i/15879369',
         },
       ],
     },

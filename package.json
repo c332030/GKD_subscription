@@ -1,6 +1,6 @@
 {
   "name": "@aisouler/gkd_subscription",
-  "version": "0.0.88",
+  "version": "0.0.108",
   "type": "module",
   "gkd": {
     "outDir": "dist",
@@ -42,23 +42,23 @@
     "@commitlint/config-conventional": "19.2.2",
     "@commitlint/types": "19.0.3",
     "@eslint/eslintrc": "^3.1.0",
-    "@eslint/js": "^9.3.0",
-    "@gkd-kit/api": "0.0.5",
+    "@eslint/js": "^9.7.0",
+    "@gkd-kit/api": "0.3.3",
     "@gkd-kit/define": "0.0.1",
-    "@gkd-kit/tools": "0.2.0",
-    "@types/node": "20.12.12",
-    "@typescript-eslint/eslint-plugin": "7.11.0",
-    "@typescript-eslint/parser": "7.11.0",
-    "eslint": "9.3.0",
+    "@gkd-kit/tools": "0.4.0",
+    "@types/node": "20.14.11",
+    "@typescript-eslint/eslint-plugin": "7.16.1",
+    "@typescript-eslint/parser": "7.16.1",
+    "eslint": "9.7.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-define-config": "2.1.0",
     "eslint-plugin-unused-imports": "4.0.0",
     "json5": "2.2.3",
-    "lint-staged": "15.2.5",
-    "prettier": "3.2.5",
+    "lint-staged": "15.2.7",
+    "prettier": "3.3.3",
     "simple-git-hooks": "2.11.1",
-    "tsx": "4.11.0",
-    "typescript": "5.4.5"
+    "tsx": "4.16.2",
+    "typescript": "5.5.3"
   },
   "volta": {
     "node": "20.13.1"
@@ -66,6 +66,6 @@
   "packageManager": "pnpm@9.1.1",
   "engineStrict": true,
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   }
 }

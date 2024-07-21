@@ -7,7 +7,7 @@ export default defineGkdApp({
     {
       key: 2,
       name: '全屏广告-弹窗广告',
-      quickFind: true,
+      fastQuery: true,
       matchTime: 10000,
       actionMaximum: 1,
       rules: [
@@ -20,7 +20,7 @@ export default defineGkdApp({
     {
       key: 3,
       name: '权限提示-定位权限',
-      quickFind: true,
+      fastQuery: true,
       matchTime: 10000,
       actionMaximum: 1,
       resetMatch: 'app',
@@ -28,6 +28,22 @@ export default defineGkdApp({
       rules:
         '[text="申请定位权限说明"] < LinearLayout +2 LinearLayout [id="com.cmi.jegotrip:id/btn_cancel"]',
       snapshotUrls: 'https://i.gkd.li/i/13232766',
+    },
+    {
+      key: 4,
+      name: '权限提示-权限申请弹窗',
+      desc: '点击[取消]',
+      fastQuery: true,
+      actionMaximum: 1,
+      resetMatch: 'app',
+      rules: [
+        {
+          activityIds:
+            'pub.devrel.easypermissions.AppSettingsDialogHolderActivity',
+          matches: ['[text="权限申请"]', '[text="取消"]'],
+          snapshotUrls: 'https://i.gkd.li/i/16233246',
+        },
+      ],
     },
   ],
 });

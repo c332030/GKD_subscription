@@ -5,12 +5,30 @@ export default defineGkdApp({
   name: '京东',
   groups: [
     {
+      key: 0,
+      name: '开屏广告',
+      fastQuery: true,
+      matchTime: 10000,
+      actionMaximum: 1,
+      resetMatch: 'app',
+      rules: [
+        {
+          excludeActivityIds: 'com.jd.lib.search.view.Activity.SearchActivity',
+          matches: '[text*="跳过"][text.length<10][visibleToUser=true]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/16323111',
+            'https://i.gkd.li/i/16323115', // 防止误触
+          ],
+        },
+      ],
+    },
+    {
       key: 1,
       name: '局部广告-购物车页面砸金蛋',
       desc: '点击关闭',
       rules: [
         {
-          quickFind: true,
+          fastQuery: true,
           activityIds: 'com.jingdong.app.mall.MainFrameActivity',
           matches: '[id="com.jd.lib.cart.feature:id/iv_egg_close"]',
           snapshotUrls: 'https://i.gkd.li/i/14731003',
@@ -55,7 +73,7 @@ export default defineGkdApp({
       key: 4,
       name: '权限提示-通知权限',
       desc: '点击关闭',
-      quickFind: true,
+      fastQuery: true,
       //matchTime: 10000, 该弹窗可能在多个页面出现
       actionMaximum: 1,
       resetMatch: 'app',
@@ -92,7 +110,7 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          quickFind: true,
+          fastQuery: true,
           activityIds: [
             'com.jd.lib.cashier.complete.view.CashierCompleteActivity',
             'com.jd.lib.jshop.jshop.JshopMainShopActivity',
@@ -105,7 +123,10 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          activityIds: 'com.jingdong.app.mall.MainFrameActivity',
+          activityIds: [
+            'com.jingdong.app.mall.MainFrameActivity',
+            'com.jd.lib.jshop.jshop.JshopMainShopActivity',
+          ],
           excludeMatches: 'ImageView[desc="关闭页面"] - [text="优惠券"]',
           matches:
             '[desc="关闭页面" || desc="关闭按钮"][clickable=true][visibleToUser=true]',
@@ -114,6 +135,7 @@ export default defineGkdApp({
             'https://i.gkd.li/i/13258996',
             'https://i.gkd.li/i/13336847', // 增加excludeMatches: 'ImageView[desc="关闭页面"] - [text="优惠券"]', 避免在该快照误触
             'https://i.gkd.li/i/15416926',
+            'https://i.gkd.li/i/15862131',
           ],
         },
       ],
@@ -135,7 +157,7 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          quickFind: true,
+          fastQuery: true,
           matches: '@ViewGroup[clickable=true] - * > [text="去续费"]',
           snapshotUrls: 'https://i.gkd.li/i/15047238',
         },
@@ -147,7 +169,7 @@ export default defineGkdApp({
         },
         {
           key: 3,
-          quickFind: true,
+          fastQuery: true,
           matches: '[id="com.jd.lib.cart.feature:id/plus_close"]',
           snapshotUrls: 'https://i.gkd.li/i/15229577',
         },
@@ -174,7 +196,7 @@ export default defineGkdApp({
       key: 12,
       name: '全屏广告-购物车页面支付成功弹窗广告',
       desc: '自动点击正下方的"x"',
-      quickFind: true,
+      fastQuery: true,
       rules: [
         {
           activityIds: 'com.jd.lib.cart.ShoppingCartNewActivity',
@@ -189,7 +211,7 @@ export default defineGkdApp({
       desc: '点击[继续逛]',
       rules: [
         {
-          quickFind: true,
+          fastQuery: true,
           activityIds: 'com.jd.lib.productdetail.ProductDetailActivity',
           matches: '[text="继续逛"]',
           snapshotUrls: 'https://i.gkd.li/i/15047243',

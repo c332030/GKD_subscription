@@ -10,7 +10,7 @@ export default defineGkdApp({
       matchTime: 10000,
       actionMaximum: 1,
       resetMatch: 'app',
-      quickFind: true,
+      fastQuery: true,
       rules:
         'TextView[text^="新版本"] - Button[id="com.sankuai.meituan:id/btn_close"]',
       snapshotUrls: [
@@ -67,7 +67,7 @@ export default defineGkdApp({
         {
           key: 5,
           name: '订单完成后的红包弹窗',
-          quickFind: true,
+          fastQuery: true,
           activityIds:
             'com.sankuai.waimai.bussiness.order.detail.WMOrderDetailActivity',
           matches: '@ImageView[clickable=true] - * >3 [text="开心收下"]',
@@ -91,7 +91,7 @@ export default defineGkdApp({
       name: '评价提示-订单调查弹窗',
       matchTime: 10000,
       actionMaximum: 1,
-      quickFind: true,
+      fastQuery: true,
       rules: [
         {
           name: '我的页面-小调查',
@@ -109,15 +109,28 @@ export default defineGkdApp({
     },
     {
       key: 4,
-      name: '局部广告-首页右侧抽奖小广告',
-      activityIds: [
-        'com.meituan.android.pt.homepage.activity.MainActivity',
-        'com.miui.home.launcher.Launcher',
-      ],
-      rules: 'FrameLayout > @ImageView + ImageView[desc="资质与规则"]',
-      snapshotUrls: [
-        'https://i.gkd.li/i/12639815',
-        'https://i.gkd.li/i/12639734',
+      name: '局部广告-悬浮广告',
+      rules: [
+        {
+          key: 0,
+          activityIds: [
+            'com.meituan.android.pt.homepage.activity.MainActivity',
+            'com.miui.home.launcher.Launcher',
+          ],
+          matches: 'FrameLayout > @ImageView + ImageView[desc="资质与规则"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/12639815',
+            'https://i.gkd.li/i/12639734',
+          ],
+        },
+        {
+          key: 1,
+          fastQuery: true,
+          activityIds:
+            'com.sankuai.waimai.business.page.homepage.TakeoutActivity',
+          matches: '[vid="marking_sidebar_close"]',
+          snapshotUrls: 'https://i.gkd.li/i/16079638',
+        },
       ],
     },
     {
@@ -130,7 +143,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          quickFind: true,
+          fastQuery: true,
           activityIds: 'com.meituan.android.pt.homepage.activity.MainActivity',
           matches: '[vid="location_close"]',
           exampleUrls:
@@ -160,7 +173,7 @@ export default defineGkdApp({
       key: 8,
       name: '权限提示-通知权限',
       desc: '点击跳过',
-      quickFind: true,
+      fastQuery: true,
       matchTime: 10000,
       actionMaximum: 1,
       resetMatch: 'app',
@@ -208,7 +221,7 @@ export default defineGkdApp({
     {
       key: 12,
       name: '功能类-付款后自动点击完成',
-      quickFind: true,
+      fastQuery: true,
       rules: [
         {
           key: 0,

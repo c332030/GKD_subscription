@@ -12,9 +12,9 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          quickFind: true,
+          fastQuery: true,
           matches:
-            'FrameLayout > FrameLayout[childCount>2] > @View[clickable=true] + TextView <<n [id="android:id/content"]',
+            'FrameLayout > FrameLayout[childCount>2] > @View[clickable=true][visibleToUser=true] + TextView[text=null] <<n [id="android:id/content"]',
           exampleUrls:
             'https://m.gkd.li/57941037/470c6262-62ca-45c5-908c-8435d7b0e86f',
           snapshotUrls: [
@@ -51,7 +51,7 @@ export default defineGkdApp({
       key: 2,
       name: '权限提示-通知权限',
       desc: '自动点击“以后再说”',
-      quickFind: true,
+      fastQuery: true,
       matchTime: 10000,
       actionMaximum: 1,
       resetMatch: 'app',

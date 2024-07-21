@@ -31,7 +31,7 @@ export default defineGkdApp({
       name: '功能类-关闭[开通免密支付]弹窗',
       rules: [
         {
-          quickFind: true,
+          fastQuery: true,
           activityIds: 'com.mcd.order.activity.OrderDetailActivity',
           matches: '@[vid="iv_close"] - * >2 [text*="免密支付"]',
           exampleUrls:
@@ -39,6 +39,19 @@ export default defineGkdApp({
           snapshotUrls: 'https://i.gkd.li/i/14798873',
         },
       ],
+    },
+    {
+      key: 4,
+      name: '权限提示-设备信息权限',
+      desc: '点击【不允许】',
+      fastQuery: true,
+      resetMatch: 'app',
+      actionMaximum: 1,
+      activityIds: 'com.mcdonalds.gma.cn.activity.LaunchActivity',
+      rules: '[text$="获取您的设备信息"] + * > [text="不允许"]',
+      exampleUrls:
+        'https://m.gkd.li/101449500/121c7e65-780e-41aa-acf8-34c491d4be41',
+      snapshotUrls: 'https://i.gkd.li/i/15944357',
     },
   ],
 });

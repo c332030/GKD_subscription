@@ -5,9 +5,24 @@ export default defineGkdApp({
   name: '游民星空',
   groups: [
     {
+      key: 0,
+      name: '开屏广告',
+      fastQuery: true,
+      matchTime: 10000,
+      actionMaximum: 1,
+      resetMatch: 'app',
+      rules: [
+        {
+          matches: '[text*="跳过"][text.length<10][visibleToUser=true]',
+          exampleUrls: 'https://e.gkd.li/50a53595-1cd9-4dc0-ab13-f79a5e9a702c',
+          snapshotUrls: 'https://i.gkd.li/i/16322789',
+        },
+      ],
+    },
+    {
       key: 1,
       name: '局部广告-卡片广告',
-      quickFind: true,
+      fastQuery: true,
       rules: [
         {
           key: 0,
@@ -65,7 +80,7 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          quickFind: true,
+          fastQuery: true,
           activityIds: 'com.gamersky.main.activity.LibMainActivity',
           matches: ['[text="签到成功！"]', '[text="确定"]'],
           exampleUrls:

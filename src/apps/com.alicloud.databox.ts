@@ -7,7 +7,10 @@ export default defineGkdApp({
     {
       key: 0,
       name: '功能类-自动签到',
-      quickFind: true,
+      fastQuery: true,
+      matchTime: 10000,
+      actionMaximum: 1,
+      resetMatch: 'app',
       activityIds: [
         'com.alicloud.databox.MainActivity',
         'com.alicloud.databox.navigation.NavigationFragmentContainerActivity',
@@ -15,20 +18,18 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          name: '自动点击签到',
-          matches: '[id="com.alicloud.databox:id/tvTaskAction"][text="领取"]',
-          snapshotUrls: 'https://i.gkd.li/i/12929318',
+          matches: '[text="领取"][clickable=true][visibleToUser=true]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/15573070', // 签到前
+            'https://i.gkd.li/i/15573233', // 签到后
+          ],
         },
         {
           preKeys: [0],
           key: 1,
-          name: '关闭弹窗',
-          matches: '[vid="ivClose"]',
-          snapshotUrls: [
-            'https://i.gkd.li/i/13038304',
-            'https://i.gkd.li/i/14235221',
-            'https://i.gkd.li/i/15144565', // 全局规则开屏广告在此误触导致自动签到规则执行中断
-          ],
+          action: 'back',
+          matches: '[vid="ivCardBackBackground"][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/15144565',
         },
       ],
     },
@@ -60,7 +61,7 @@ export default defineGkdApp({
       matchTime: 10000,
       actionMaximum: 1,
       resetMatch: 'app',
-      quickFind: true,
+      fastQuery: true,
       rules: [
         {
           matches: '[text^="立即了解"] -3 View[clickable=true]',
@@ -86,7 +87,7 @@ export default defineGkdApp({
       name: '功能类-扫描二维码登录时自动点击登录',
       actionMaximum: 1,
       resetMatch: 'app',
-      quickFind: true,
+      fastQuery: true,
       rules: [
         {
           activityIds: 'com.taobao.login4android.scan.QrScanActivity',
@@ -101,7 +102,7 @@ export default defineGkdApp({
       desc: '点击关闭',
       rules: [
         {
-          quickFind: true,
+          fastQuery: true,
           activityIds: 'com.alicloud.databox.MainActivity',
           matches: ['[text="容量使用超限"]', '[vid="layout_close"]'],
           exampleUrls:
@@ -113,15 +114,22 @@ export default defineGkdApp({
     {
       key: 7,
       name: '局部广告-卡片广告',
+      fastQuery: true,
       matchTime: 10000,
       actionMaximum: 1,
       resetMatch: 'app',
       rules: [
         {
-          quickFind: true,
+          key: 0,
           activityIds: 'com.alicloud.databox.transferpage.TransferListActivity',
           matches: '[vid="close"]',
           snapshotUrls: 'https://i.gkd.li/i/15433289',
+        },
+        {
+          key: 1,
+          activityIds: 'com.alicloud.databox.MainActivity',
+          matches: '[vid="ivTitleAction"]',
+          snapshotUrls: 'https://i.gkd.li/i/15524767',
         },
       ],
     },

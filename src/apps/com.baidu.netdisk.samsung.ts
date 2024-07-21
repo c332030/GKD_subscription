@@ -7,7 +7,7 @@ export default defineGkdApp({
     {
       key: -1,
       name: '开屏广告',
-      quickFind: true,
+      fastQuery: true,
       matchTime: 10000,
       actionMaximum: 1,
       resetMatch: 'app',
@@ -23,7 +23,7 @@ export default defineGkdApp({
         {
           key: 1,
           matches:
-            'FrameLayout > FrameLayout[childCount>2] > @View[clickable=true] + TextView <<n [id="android:id/content"]',
+            'FrameLayout > FrameLayout[childCount>2] > @View[clickable=true][visibleToUser=true] + TextView[text=null] <<n [id="android:id/content"]',
           exampleUrls:
             'https://m.gkd.li/57941037/7f1babd6-7da3-4733-aca9-80ddf3c0a84e',
           snapshotUrls: 'https://i.gkd.li/i/14596658',
@@ -38,7 +38,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          quickFind: true,
+          fastQuery: true,
           matches: '[id="com.baidu.netdisk.samsung:id/iv_close"]',
           snapshotUrls: 'https://i.gkd.li/i/12738331',
         },
@@ -52,7 +52,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          quickFind: true,
+          fastQuery: true,
           matches:
             '[id="com.baidu.netdisk.samsung:id/buy_product_root"] > [id="com.baidu.netdisk.samsung:id/iv_close"]',
           snapshotUrls: 'https://i.gkd.li/i/12738388',
@@ -76,7 +76,7 @@ export default defineGkdApp({
     {
       key: 5,
       name: '评价提示',
-      quickFind: true,
+      fastQuery: true,
       matchTime: 10000,
       actionMaximum: 1,
       resetMatch: 'app',
@@ -92,7 +92,7 @@ export default defineGkdApp({
     {
       key: 6,
       name: '权限提示-通知权限',
-      quickFind: true,
+      fastQuery: true,
       matchTime: 10000,
       actionMaximum: 1,
       resetMatch: 'app',
@@ -111,7 +111,7 @@ export default defineGkdApp({
       desc: '点击关闭',
       rules: [
         {
-          quickFind: true,
+          fastQuery: true,
           activityIds:
             'com.baidu.netdisk.filealbum.ui.activity.FileAlbumListActivity',
           matches: '[vid="add_widget_dialog_close"]',

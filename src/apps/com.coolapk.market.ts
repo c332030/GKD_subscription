@@ -7,7 +7,7 @@ export default defineGkdApp({
     {
       key: -1,
       name: '开屏广告',
-      quickFind: true,
+      fastQuery: true,
       matchTime: 10000,
       actionMaximum: 1,
       resetMatch: 'app',
@@ -20,7 +20,7 @@ export default defineGkdApp({
         {
           key: 0,
           matches:
-            'FrameLayout > FrameLayout[childCount>2] > @View[clickable=true] + TextView <<n [id="android:id/content"]',
+            'FrameLayout > FrameLayout[childCount>2] > @View[clickable=true][visibleToUser=true] + TextView[text=null] <<n [id="android:id/content"]',
           snapshotUrls: [
             'https://i.gkd.li/i/12503773',
             'https://i.gkd.li/i/13247610',
@@ -47,7 +47,7 @@ export default defineGkdApp({
       key: 0,
       name: '分段广告-卡片广告',
       desc: '点击卡片右上角按钮->免广告-点击关闭->选择关闭原因-点击不感兴趣',
-      quickFind: true,
+      fastQuery: true,
       activityIds: [
         'com.coolapk.market.view.main.MainActivity', // 缺少快照
         'com.coolapk.market.view.base.SimpleAlphaActivity', // 缺少快照
@@ -61,8 +61,12 @@ export default defineGkdApp({
           excludeMatches: [
             '[text="回复"] + [text="发布"]',
             '[text="创建收藏单"][visibleToUser=true]',
+            '[vid="submit_view"][text="发布"]',
           ],
-          matches: '[id="com.coolapk.market:id/close_view"]',
+          matches: [
+            '[text*="广告"][visibleToUser=true]',
+            '[id="com.coolapk.market:id/close_view"]',
+          ],
           snapshotUrls: [
             'https://i.gkd.li/i/12707506',
             'https://i.gkd.li/i/12642094',
@@ -71,6 +75,7 @@ export default defineGkdApp({
             'https://i.gkd.li/i/13257987',
             'https://i.gkd.li/i/14996359', // 避免误触
             'https://i.gkd.li/i/15159886', // 避免误触
+            'https://i.gkd.li/i/15587119', // 避免误触
           ],
         },
         {
@@ -103,7 +108,7 @@ export default defineGkdApp({
       matchTime: 10000,
       actionMaximum: 1,
       resetMatch: 'app',
-      quickFind: true,
+      fastQuery: true,
       snapshotUrls: 'https://i.gkd.li/i/12503762',
       rules: '[text="立即更新"] - [text="取消"]',
     },
@@ -113,7 +118,7 @@ export default defineGkdApp({
       matchTime: 10000,
       actionMaximum: 1,
       resetMatch: 'app',
-      quickFind: true,
+      fastQuery: true,
       rules: '[text="去开启"] - [text="以后再说"]',
       snapshotUrls: 'https://i.gkd.li/i/13296465',
     },

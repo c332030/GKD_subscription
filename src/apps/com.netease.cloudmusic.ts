@@ -7,7 +7,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: '开屏广告',
-      quickFind: true,
+      fastQuery: true,
       matchTime: 10000,
       actionMaximum: 1,
       resetMatch: 'app',
@@ -31,10 +31,11 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          quickFind: true,
+          fastQuery: true,
           activityIds: [
             'com.netease.cloudmusic.music.biz.search.activity.SearchActivity',
             'com.netease.cloudmusic.activity.MainActivity',
+            'com.netease.cloudmusic.music.biz.voice.player.revisionV1.ProgramPlayerActivityV1',
           ],
           excludeActivityIds:
             'com.netease.cloudmusic.music.biz.comment.activity.CommentActivity', // 排除评论区，避免节点被遮罩时误触，评论区广告规则见groups key 13
@@ -46,12 +47,13 @@ export default defineGkdApp({
             'https://i.gkd.li/i/13859634',
             'https://i.gkd.li/i/12829964',
             'https://i.gkd.li/i/12829953',
+            'https://i.gkd.li/i/16047087',
           ],
         },
         {
           key: 1,
           name: '推荐页广告',
-          quickFind: true,
+          fastQuery: true,
           activityIds: 'com.netease.cloudmusic.activity.MainActivity',
           matches: '[vid="tag_ad_banner"][clickable=true]',
           exampleUrls:
@@ -73,23 +75,25 @@ export default defineGkdApp({
         {
           // preKeys: [0, 1],该条分段广告有概率被VIP弹窗插入导致二段不触发，故去掉preKeys
           key: 90,
-          quickFind: true,
+          fastQuery: true,
           activityIds: [
             'com.netease.cloudmusic.module.ad.feedback.AdFeedbackBottomSheet',
             'com.netease.cloudmusic.music.biz.search.activity.SearchActivity',
             'com.netease.cloudmusic.activity.MainActivity',
+            'com.netease.cloudmusic.music.biz.voice.player.revisionV1.ProgramPlayerActivityV1',
           ],
           matches: '[text="直接关闭"]',
           snapshotUrls: [
             'https://i.gkd.li/i/12829967',
-            'https://i.gkd.li/i/14277137',
             'https://i.gkd.li/i/13859635',
+            'https://i.gkd.li/i/14277137',
+            'https://i.gkd.li/i/16047089',
           ],
         },
         {
           preKeys: 2,
           key: 91,
-          quickFind: true,
+          fastQuery: true,
           activityIds:
             'com.netease.cloudmusic.music.biz.comment.activity.CommentActivity',
           matches:
@@ -102,7 +106,7 @@ export default defineGkdApp({
       key: 2,
       name: '局部广告-卡片广告',
       desc: '点击关闭',
-      quickFind: true,
+      fastQuery: true,
       rules: [
         {
           key: 0,
@@ -126,7 +130,7 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          quickFind: true,
+          fastQuery: true,
           activityIds: 'com.netease.cloudmusic.activity.PlayerActivity',
           matches: '[vid="iv_ad_close"]',
           snapshotUrls: 'https://i.gkd.li/i/15282417',
@@ -166,7 +170,7 @@ export default defineGkdApp({
         },
         {
           key: 6,
-          quickFind: true,
+          fastQuery: true,
           activityIds: 'com.netease.cloudmusic.activity.MainActivity',
           matches:
             'View[childCount=4] > @TextView[index=2][visibleToUser=true] <<n [vid="popLayerWebViewContainer"]',
@@ -177,7 +181,7 @@ export default defineGkdApp({
     {
       key: 5,
       name: '全屏广告-VIP弹窗',
-      quickFind: true,
+      fastQuery: true,
       rules: [
         {
           key: 0,
@@ -185,6 +189,7 @@ export default defineGkdApp({
           activityIds: [
             'com.netease.cloudmusic.music.biz.rn.activity.MainProcessLayerReactNativeActivity',
             'com.netease.cloudmusic.activity.MainActivity',
+            '.activity.PlayListActivity',
           ],
           matches: ['[text="支付宝"]', '[text^="确认协议并"]'],
           snapshotUrls: [
@@ -196,6 +201,7 @@ export default defineGkdApp({
             'https://i.gkd.li/i/13391498',
             'https://i.gkd.li/i/14045917',
             'https://i.gkd.li/i/14926722',
+            'https://i.gkd.li/i/16242200',
           ],
         },
         {
@@ -218,7 +224,7 @@ export default defineGkdApp({
     {
       key: 6,
       name: '更新提示',
-      quickFind: true,
+      fastQuery: true,
       matchTime: 10000,
       actionMaximum: 1,
       resetMatch: 'app',
@@ -239,7 +245,7 @@ export default defineGkdApp({
       key: 7,
       name: '局部广告-播放界面广告',
       desc: '点击关闭',
-      quickFind: true,
+      fastQuery: true,
       activityIds: 'com.netease.cloudmusic.activity.PlayerActivity',
       rules: [
         {
@@ -272,7 +278,7 @@ export default defineGkdApp({
       key: 8,
       name: '局部广告-发现页顶部视频广告',
       desc: '自动点击跳过。',
-      quickFind: true,
+      fastQuery: true,
       rules: [
         {
           activityIds: 'com.netease.cloudmusic.activity.MainActivity',
@@ -306,7 +312,7 @@ export default defineGkdApp({
       key: 13,
       name: '分段广告-评论区广告',
       desc: '点击[关闭]-点击[不感兴趣]',
-      quickFind: true,
+      fastQuery: true,
       activityIds: [
         'com.netease.cloudmusic.music.biz.comment.activity.CommentActivity',
         'com.netease.cloudmusic.music.biz.comment.activity.ReplyCommentActivity2',
@@ -357,7 +363,7 @@ export default defineGkdApp({
       name: '功能类-扫码后自动点击[授权登录]',
       rules: [
         {
-          quickFind: true,
+          fastQuery: true,
           activityIds:
             'com.netease.cloudmusic.module.login.LoginPermissionActivity',
           matches: '[text="授权登录"][clickable=true]',
@@ -376,7 +382,7 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          quickFind: true,
+          fastQuery: true,
           activityIds: 'com.netease.cloudmusic.activity.MainActivity',
           matches: '@ImageView[clickable=true] <n * > [text="查看我的勋章"]',
           exampleUrls:

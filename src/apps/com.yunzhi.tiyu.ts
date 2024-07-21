@@ -12,9 +12,9 @@ export default defineGkdApp({
       resetMatch: 'app',
       rules: [
         {
-          quickFind: true,
+          fastQuery: true,
           matches:
-            'FrameLayout > FrameLayout[childCount>2] > @View[clickable=true] + TextView <<n [id="android:id/content"]',
+            'FrameLayout > FrameLayout[childCount>2] > @View[clickable=true][visibleToUser=true] + TextView[text=null] <<n [id="android:id/content"]',
           exampleUrls:
             'https://m.gkd.li/57941037/6df5defd-2455-4c58-ad9a-a6ccab1c5e96',
           snapshotUrls: 'https://i.gkd.li/i/14429559',
@@ -58,7 +58,7 @@ export default defineGkdApp({
           preKeys: 0,
           key: 1,
           name: '点击[不感兴趣]',
-          quickFind: true,
+          fastQuery: true,
           activityIds: 'com.yunzhi.tiyu.module.MainActivity',
           matches: '@[clickable=true] > [text="不感兴趣"]',
           exampleUrls:

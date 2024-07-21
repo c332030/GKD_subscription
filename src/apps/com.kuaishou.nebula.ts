@@ -18,7 +18,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
-          quickFind: true,
+          fastQuery: true,
           activityIds: 'com.yxcorp.gifshow.HomeActivity',
           matches: '@[vid="close_btn"] <n * > [text="朋友推荐"]',
           snapshotUrls: [
@@ -34,7 +34,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 1,
-          quickFind: true,
+          fastQuery: true,
           activityIds: 'com.yxcorp.gifshow.HomeActivity',
           matches:
             '@ImageView[clickable=true] - ViewGroup[childCount=3] <n * >n [text*="红包"]',
@@ -44,6 +44,21 @@ export default defineGkdApp({
             'https://i.gkd.li/i/14879912',
             'https://i.gkd.li/i/15061662',
           ],
+        },
+      ],
+    },
+    {
+      key: 4,
+      name: '局部广告-悬浮广告',
+      desc: '点击关闭',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: 'com.yxcorp.gifshow.HomeActivity',
+          matches: '[vid="close_icon"][visibleToUser=true]',
+          exampleUrls:
+            'https://m.gkd.li/57941037/12059549-21c2-47b7-9acf-ec221cc14f25',
+          snapshotUrls: 'https://i.gkd.li/i/15747381',
         },
       ],
     },

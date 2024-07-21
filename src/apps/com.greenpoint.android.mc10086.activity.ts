@@ -36,7 +36,7 @@ export default defineGkdApp({
       key: 10,
       name: '权限提示-通知权限',
       desc: '请求推送通知弹窗，点击取消',
-      quickFind: true,
+      fastQuery: true,
       matchTime: 10000,
       actionMaximum: 1,
       resetMatch: 'app',
@@ -62,7 +62,10 @@ export default defineGkdApp({
       desc: '请求获取剪贴板权限弹窗，点击不允许',
       actionMaximum: 1,
       resetMatch: 'app',
-      activityIds: 'com.mc10086.cmcc.view.tabs.AppTabFragment',
+      activityIds: [
+        'com.mc10086.cmcc.view.tabs.AppTabFragment',
+        'com.mc10086.cmcc.base.StartPageActivity',
+      ],
       rules: [
         {
           matches:
@@ -70,6 +73,7 @@ export default defineGkdApp({
           snapshotUrls: [
             'https://i.gkd.li/i/12662251',
             'https://i.gkd.li/i/13775651',
+            'https://i.gkd.li/i/15944173',
           ],
         },
       ],
@@ -77,7 +81,7 @@ export default defineGkdApp({
     {
       key: 12,
       name: '局部广告-右侧悬浮小图标',
-      quickFind: true,
+      fastQuery: true,
       rules: [
         {
           key: 0,
@@ -108,7 +112,7 @@ export default defineGkdApp({
     {
       key: 13,
       name: '评价提示-请求好评弹窗',
-      quickFind: true,
+      fastQuery: true,
       matchTime: 10000,
       actionMaximum: 1,
       resetMatch: 'app',
