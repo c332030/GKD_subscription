@@ -2,10 +2,11 @@
 
 ---
 
-## 已停止维护
+## ~~已停止维护~~ 继续维护
 
 ## 声明
 
+- **禁止在国内平台传播**
 - **本仓库仅供本人学习使用，其他人的任何行为均与本人无关**
 - **精力有限，随缘更新**
 
@@ -37,9 +38,9 @@ https://registry.npmmirror.com/@aisouler/gkd_subscription/latest/files/dist/AIso
 https://raw.githubusercontent.com/AIsouler/GKD_subscription/main/dist/AIsouler_gkd.json5
 ```
 
-- 当前版本: v188
+- 当前版本: v189
 
-- 当前订阅文件已适配 796 个应用，共有 1855 应用规则组，3 全局规则组
+- 当前订阅文件已适配 796 个应用，共有 1856 应用规则组，3 全局规则组
 
 - 查看 [适配 APP 列表](./dist/README.md)
 
@@ -61,7 +62,7 @@ https://raw.githubusercontent.com/AIsouler/GKD_subscription/main/dist/AIsouler_g
 
 ## 感谢以下开发者的贡献
 
-![img](https://contrib.rocks/image?repo=AIsouler/GKD_subscription&_v=188)
+![img](https://contrib.rocks/image?repo=AIsouler/GKD_subscription&_v=189)
 
 ## Star History
 
